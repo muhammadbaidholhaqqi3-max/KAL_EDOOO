@@ -1,0 +1,952 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SISTEM PERSAMAAN LINIER &#8212; Materi KAL</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Persamaan-Linear';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tugas Determinan &amp; Invers Matriks" href="Tugas-Determinan.html" />
+    <link rel="prev" title="CHAPTER 6 - TRANSFORMASI LINIER" href="Transformasi-Linear.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Materi KAL - Home"/>
+    <img src="_static/logo.jpg" class="logo__image only-dark pst-js-only" alt="Materi KAL - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    KAL-EDO-2D
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html">CHAPTER 6 - TRANSFORMASI LINIER</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">SISTEM PERSAMAAN LINIER</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Tugas-Determinan.html">Tugas Determinan &amp; Invers Matriks</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Animasi.html">ANIMASI TRANSFORMASI MATRIX – KONSEP CERMIN (REFLEKSI)</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Transformasi-Geometri.html">Transformasi Geometri dengan GeoGebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FPersamaan-Linear.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Persamaan-Linear.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SISTEM PERSAMAAN LINIER</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">SISTEM PERSAMAAN LINIER</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear">1.1 Sistem Persamaan Linear</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-sistem-persamaan-linear">1.1.1. Definisi Sistem Persamaan Linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-dari-operasi-persamaan-linear">1.1.2 Tujuan Dari Operasi Persamaan Linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persamaan-linear-dan-nonlinear">1.1.2. Persamaan Linear dan Nonlinear</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persamaan-linear">1. Persamaan Linear</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persamaan-nonlinear">2. Persamaan Nonlinear</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-solusi-sistem-persamaan-linear">1.1.3. Definisi Solusi Sistem Persamaan Linear</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-baris-elementer-pada-matriks">Operasi Baris Elementer Pada Matriks</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.1 Operasi Baris Elementer Pada Matriks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-operasi-baris-pada-matriks">2.1.1 Definisi Operasi Baris Pada Matriks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jenis-jenis-operasi-baris-elementer">Jenis-Jenis Operasi Baris Elementer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pertukaran-dua-baris-row-switching">1. Pertukaran Dua Baris (Row Switching)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perkalian-baris-dengan-konstanta-row-scaling">2. Perkalian Baris dengan Konstanta (Row Scaling)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#penjumlahan-baris-row-replacement">3. Penjumlahan Baris (Row Replacement)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notasi-operasi-bilangan-elementer">2.1.2 Notasi Operasi Bilangan Elementer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-menjalankan-operasi-baris-elementer">2.1.3 Langkah-Langkah Menjalankan Operasi Baris Elementer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-proses-eliminasi-gauss">2.1.4 Contoh Proses Eliminasi Gauss</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-linear-geometris">TRANSFORMASI LINEAR GEOMETRIS</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-linear">3.1 Transformasi Linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-dari-transformasi-linear">1. Matriks dari Transformasi Linear</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-matriks-standar">Teorema Matriks Standar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembuktian">2. Pembuktian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal-transformasi-dilatasi">3. Contoh Soal: Transformasi Dilatasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-linear-geometris-lainnya-dalam-mathbb-r-2">4. Transformasi Linear Geometris Lainnya dalam <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksistensi-dan-keunikan-pemetaan-sifat-fungsi">5. Eksistensi dan Keunikan Pemetaan (Sifat Fungsi)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-onto-surjektif">Definisi: <em>Onto</em> (Surjektif)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-one-to-one-injektif">Definisi: <em>One-to-One</em> (Injektif)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sistem-persamaan-linier">
+<h1>SISTEM PERSAMAAN LINIER<a class="headerlink" href="#sistem-persamaan-linier" title="Link to this heading">#</a></h1>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="sistem-persamaan-linear">
+<h1>1.1 Sistem Persamaan Linear<a class="headerlink" href="#sistem-persamaan-linear" title="Link to this heading">#</a></h1>
+<section id="definisi-sistem-persamaan-linear">
+<h2>1.1.1. Definisi Sistem Persamaan Linear<a class="headerlink" href="#definisi-sistem-persamaan-linear" title="Link to this heading">#</a></h2>
+<p>Suatu sistem persamaan linear (<em>system of linear equations</em> atau <em>linear system</em>) adalah suatu himpunan persamaan-persamaan linear. Sistem linear homogen adalah himpunan persamaan linear yang semuanya berbentuk homogen (ruas kanannya nol).</p>
+<p>Jika kita menuliskan suatu sistem yang terdiri atas <span class="math notranslate nohighlight">\(m\)</span> persamaan dalam <span class="math notranslate nohighlight">\(n\)</span> peubah <span class="math notranslate nohighlight">\(x_1, x_2, \dots, x_n\)</span>, biasanya setiap persamaan ditulis dalam bentuk standar dan suku-suku yang bersesuaian disejajarkan dalam kolom sebagai berikut:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n &amp;= b_1 \\
+a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n &amp;= b_2 \\
+\vdots \\
+a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n &amp;= b_m
+\end{aligned}
+\end{split}\]</div>
+<p>Sistem linear homogen biasanya dituliskan sebagai:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+a_{11}x_1 + a_{12}x_2 + \dots + a_{1n}x_n &amp;= 0 \\
+a_{21}x_1 + a_{22}x_2 + \dots + a_{2n}x_n &amp;= 0 \\
+\vdots \\
+a_{m1}x_1 + a_{m2}x_2 + \dots + a_{mn}x_n &amp;= 0
+\end{aligned}
+\end{split}\]</div>
+</section>
+<section id="tujuan-dari-operasi-persamaan-linear">
+<h2>1.1.2 Tujuan Dari Operasi Persamaan Linear<a class="headerlink" href="#tujuan-dari-operasi-persamaan-linear" title="Link to this heading">#</a></h2>
+<p>Operasi persamaan linear bertujuan untuk menemukan solusi dengan cara menyederhanakan persamaan tanpa mengubah nilai kebenarannya, seperti contoh di bawah ini:
+Diberikan persamaan:
+<span class="math notranslate nohighlight">\(2x + 4 = 10\)</span>
+Tujuan kita adalah mencari <span class="math notranslate nohighlight">\(x\)</span>, langkah operasi yang bisa kita lakukan dengan menggunakan cara:</p>
+<ol class="arabic simple">
+<li><p>Kita kurangi kedua sisi dengan 4:
+<span class="math notranslate nohighlight">\(2x + 4 - 4 = 10 - 4\)</span>
+<span class="math notranslate nohighlight">\(2x = 6\)</span></p></li>
+<li><p>Kita bagi kedua sisi dengan 2:
+<span class="math notranslate nohighlight">\(x = 3\)</span></p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="persamaan-linear-dan-nonlinear">
+<h2>1.1.2. Persamaan Linear dan Nonlinear<a class="headerlink" href="#persamaan-linear-dan-nonlinear" title="Link to this heading">#</a></h2>
+<section id="persamaan-linear">
+<h3>1. Persamaan Linear<a class="headerlink" href="#persamaan-linear" title="Link to this heading">#</a></h3>
+<p>Persamaan linear adalah persamaan yang variabelnya memiliki pangkat tertinggi <strong>satu (derajat satu)</strong> dan grafiknya berbentuk <strong>garis lurus</strong>.</p>
+<p><strong>Contoh Bentuk Umum (dua bentuk)</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Satu variabel</strong>
+<span class="math notranslate nohighlight">\([ ax + b = 0 ]\)</span>
+Keterangan:</p>
+<ul class="simple">
+<li><p>0 = konstanta</p></li>
+<li><p>a, b = koefisien</p></li>
+<li><p>x = variabel
+Contoh: <span class="math notranslate nohighlight">\([ 2x + 5 = 0 ]\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>Dua variabel</strong>
+<span class="math notranslate nohighlight">\([ ax + by + c = 0 ]\)</span>
+Keterangan:</p>
+<ul class="simple">
+<li><p>(a, b, c) = konstanta</p></li>
+<li><p>(x, y) = variabel
+Contoh: <span class="math notranslate nohighlight">\([ 2x + y - 4 = 0 ]\)</span></p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Ciri-ciri Persamaan Linear:</strong></p>
+<ul class="simple">
+<li><p>Pangkat variabel = 1</p></li>
+<li><p>Tidak ada perkalian antar variabel</p></li>
+<li><p>Tidak ada akar atau pangkat lebih dari satu</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="persamaan-nonlinear">
+<h3>2. Persamaan Nonlinear<a class="headerlink" href="#persamaan-nonlinear" title="Link to this heading">#</a></h3>
+<p>Persamaan nonlinear adalah persamaan yang memiliki variabel dengan pangkat <strong>lebih dari satu</strong>, berada dalam akar, atau saling dikalikan sehingga grafiknya <strong>bukan garis lurus</strong>.</p>
+<p><strong>Bentuk Umum (dua bentuk)</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Persamaan kuadrat</strong>
+<span class="math notranslate nohighlight">\([ ax^2 + bx + c = 0 ]\)</span>
+Keterangan:</p>
+<ul class="simple">
+<li><p>Pangkat tertinggi variabel adalah 2.
+Contoh: <span class="math notranslate nohighlight">\([ x^2 + 3x - 4 = 0 ]\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>Persamaan dengan perkalian variabel</strong>
+<span class="math notranslate nohighlight">\([ xy + x + y = 0 ]\)</span>
+Contoh: <span class="math notranslate nohighlight">\([ xy + 2x - y = 3 ]\)</span></p></li>
+</ol>
+<p><strong>Ciri-ciri Persamaan Nonlinear:</strong></p>
+<ul class="simple">
+<li><p>Pangkat variabel lebih dari 1 atau berbentuk akar</p></li>
+<li><p>Bisa terdapat perkalian antar variabel (<span class="math notranslate nohighlight">\(xy\)</span>)</p></li>
+<li><p>Grafik berupa kurva (parabola, lingkaran, dll.)</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="definisi-solusi-sistem-persamaan-linear">
+<h2>1.1.3. Definisi Solusi Sistem Persamaan Linear<a class="headerlink" href="#definisi-solusi-sistem-persamaan-linear" title="Link to this heading">#</a></h2>
+<p><strong>Pengertian Solusi dalam persamaan linear</strong> adalah nilai variabel yang membuat persamaan menjadi <strong>benar</strong> ketika nilai tersebut disubstitusikan ke dalam persamaan.
+Dengan kata lain, solusi adalah nilai yang menyebabkan <strong>ruas kiri = ruas kanan</strong>.</p>
+<p><strong>Penjelasan</strong>: Pada persamaan linear, tujuan utama adalah mencari nilai variabel (misalnya <span class="math notranslate nohighlight">\(x, y, z\)</span>) yang memenuhi persamaan.
+Jika suatu nilai dimasukkan ke dalam persamaan dan menghasilkan kesamaan yang benar, maka nilai tersebut disebut <strong>solusi</strong>.</p>
+<p><strong>Jenis solusi pada persamaan linear diantaranya:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Solusi tunggal</strong>: Hanya ada satu set nilai variabel yang memenuhi semua persamaan.</p></li>
+<li><p><strong>Tidak ada solusi</strong>: Tidak ada nilai variabel yang memenuhi semua persamaan (sistem inkonsisten).</p></li>
+<li><p><strong>Solusi tak terhingga</strong>: Ada tak terhingga banyaknya solusi (sistem dependen).</p></li>
+</ol>
+<p><strong>Contoh grafis (2D) dalam solusi persamaan linear:</strong></p>
+<ul class="simple">
+<li><p>Garis berpotongan <span class="math notranslate nohighlight">\(\to\)</span> Solusi tunggal</p></li>
+<li><p>Garis sejajar <span class="math notranslate nohighlight">\(\to\)</span> Tidak ada solusi</p></li>
+<li><p>Garis berimpit <span class="math notranslate nohighlight">\(\to\)</span> Solusi tak terhingga</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="operasi-baris-elementer-pada-matriks">
+<h1>Operasi Baris Elementer Pada Matriks<a class="headerlink" href="#operasi-baris-elementer-pada-matriks" title="Link to this heading">#</a></h1>
+<section id="id1">
+<h2>2.1 Operasi Baris Elementer Pada Matriks<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="definisi-operasi-baris-pada-matriks">
+<h3>2.1.1 Definisi Operasi Baris Pada Matriks<a class="headerlink" href="#definisi-operasi-baris-pada-matriks" title="Link to this heading">#</a></h3>
+<p>Operasi Baris Elementer (OBE) adalah operasi dasar yang dilakukan terhadap baris-baris suatu matriks dengan tujuan mengubah bentuk matriks menjadi lebih sederhana tanpa mengubah solusi sistem persamaan linear yang direpresentasikan oleh matriks tersebut.</p>
+<p>Dengan kata lain, operasi ini hanya mengubah tampilan matriks, tetapi nilai solusi tetap sama (ekuivalen).</p>
+<p>Operasi baris elementer banyak digunakan dalam:</p>
+<ul class="simple">
+<li><p>Penyelesaian Sistem Persamaan Linear (SPL),</p></li>
+<li><p>Metode eliminasi Gauss,</p></li>
+<li><p>Metode Gauss-Jordan,</p></li>
+<li><p>Pencarian invers matriks,</p></li>
+<li><p>Menentukan rank matriks.</p></li>
+</ul>
+<p>Proses mengubah suatu matriks menggunakan operasi baris elementer disebut <strong>reduksi baris (row reduction)</strong>. Dua matriks disebut <strong>ekuivalen baris (row equivalent)</strong> jika salah satunya dapat diperoleh dari yang lain melalui sejumlah hingga operasi baris elementer.</p>
+</section>
+<hr class="docutils" />
+<section id="jenis-jenis-operasi-baris-elementer">
+<h3>Jenis-Jenis Operasi Baris Elementer<a class="headerlink" href="#jenis-jenis-operasi-baris-elementer" title="Link to this heading">#</a></h3>
+<section id="pertukaran-dua-baris-row-switching">
+<h4>1. Pertukaran Dua Baris (Row Switching)<a class="headerlink" href="#pertukaran-dua-baris-row-switching" title="Link to this heading">#</a></h4>
+<p>Menukar posisi dua baris dalam matriks.</p>
+<ul class="simple">
+<li><p><strong>Notasi:</strong> <span class="math notranslate nohighlight">\(R_i \leftrightarrow R_j\)</span></p></li>
+<li><p><strong>Makna:</strong> Baris ke-<span class="math notranslate nohighlight">\(i\)</span> ditukar dengan baris ke-<span class="math notranslate nohighlight">\(j\)</span>.</p></li>
+<li><p><strong>Contoh:</strong>
+$<span class="math notranslate nohighlight">\(\begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix} \xrightarrow{R_1 \leftrightarrow R_2} \begin{bmatrix} 3 &amp; 4 \\ 1 &amp; 2 \end{bmatrix}\)</span>$</p></li>
+</ul>
+</section>
+<section id="perkalian-baris-dengan-konstanta-row-scaling">
+<h4>2. Perkalian Baris dengan Konstanta (Row Scaling)<a class="headerlink" href="#perkalian-baris-dengan-konstanta-row-scaling" title="Link to this heading">#</a></h4>
+<p>Mengalikan semua elemen dalam satu baris dengan suatu bilangan bukan nol.</p>
+<ul class="simple">
+<li><p><strong>Notasi:</strong> <span class="math notranslate nohighlight">\(R_i \to kR_i, \quad k \neq 0\)</span></p></li>
+<li><p><strong>Makna:</strong> Setiap elemen pada baris ke-<span class="math notranslate nohighlight">\(i\)</span> dikalikan konstanta <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
+<li><p><strong>Contoh:</strong>
+$<span class="math notranslate nohighlight">\(\begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix} \xrightarrow{R_1 \to 2R_1} \begin{bmatrix} 2 &amp; 4 \\ 3 &amp; 4 \end{bmatrix}\)</span>$</p></li>
+</ul>
+</section>
+<section id="penjumlahan-baris-row-replacement">
+<h4>3. Penjumlahan Baris (Row Replacement)<a class="headerlink" href="#penjumlahan-baris-row-replacement" title="Link to this heading">#</a></h4>
+<p>Menambahkan kelipatan suatu baris ke baris lainnya.</p>
+<ul class="simple">
+<li><p><strong>Notasi:</strong> <span class="math notranslate nohighlight">\(R_i \to R_i + kR_j\)</span></p></li>
+<li><p><strong>Makna:</strong> Baris ke-<span class="math notranslate nohighlight">\(i\)</span> diganti dengan hasil penjumlahan baris ke-<span class="math notranslate nohighlight">\(i\)</span> dan kelipatan baris ke-<span class="math notranslate nohighlight">\(j\)</span>.</p></li>
+<li><p><strong>Contoh:</strong>
+$<span class="math notranslate nohighlight">\(\begin{bmatrix} 1 &amp; 2 \\ 3 &amp; 4 \end{bmatrix} \xrightarrow{R_2 \to R_2 - 3R_1} \begin{bmatrix} 1 &amp; 2 \\ 0 &amp; -2 \end{bmatrix}\)</span>$</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="notasi-operasi-bilangan-elementer">
+<h3>2.1.2 Notasi Operasi Bilangan Elementer<a class="headerlink" href="#notasi-operasi-bilangan-elementer" title="Link to this heading">#</a></h3>
+<p>Notasi operasi baris elementer digunakan untuk menunjukkan perubahan yang dilakukan pada baris suatu matriks tanpa menuliskan seluruh proses perhitungan. Biasanya huruf <span class="math notranslate nohighlight">\(R\)</span> digunakan sebagai singkatan dari <strong>Row (baris)</strong>.</p>
+<ol class="arabic simple">
+<li><p><strong>Notasi Pertukaran Baris</strong></p>
+<ul class="simple">
+<li><p>Bentuk notasi: <span class="math notranslate nohighlight">\(R_i \leftrightarrow R_j\)</span></p></li>
+<li><p>Arti: Baris ke-<span class="math notranslate nohighlight">\(i\)</span> ditukar dengan baris ke-<span class="math notranslate nohighlight">\(j\)</span>.</p></li>
+</ul>
+</li>
+<li><p><strong>Notasi Perkalian Baris Dengan Konstanta</strong></p>
+<ul class="simple">
+<li><p>Bentuk notasi: <span class="math notranslate nohighlight">\(R_i \to kR_i, \quad k \neq 0\)</span></p></li>
+<li><p>Arti: Baris ke-<span class="math notranslate nohighlight">\(i\)</span> diganti menjadi <span class="math notranslate nohighlight">\(k\)</span> kali baris ke-<span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+</ul>
+</li>
+<li><p><strong>Notasi Penjumlahan Baris (Penggantian Baris)</strong></p>
+<ul class="simple">
+<li><p>Bentuk notasi: <span class="math notranslate nohighlight">\(R_i \to R_i + kR_j\)</span></p></li>
+<li><p>Arti: Baris <span class="math notranslate nohighlight">\(i\)</span> diganti hasil penjumlahan Baris <span class="math notranslate nohighlight">\(i\)</span> lama ditambah kelipatan baris <span class="math notranslate nohighlight">\(j\)</span>.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="langkah-langkah-menjalankan-operasi-baris-elementer">
+<h3>2.1.3 Langkah-Langkah Menjalankan Operasi Baris Elementer<a class="headerlink" href="#langkah-langkah-menjalankan-operasi-baris-elementer" title="Link to this heading">#</a></h3>
+<p>Eliminasi Gauss (Gaussian elimination) adalah algoritma yang digunakan untuk mengubah suatu matriks menjadi bentuk eselon baris (row echelon form) dengan menggunakan operasi baris elementer.</p>
+<p><strong>Langkah-Langkah Eliminasi Gauss:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Menentukan Pivot Pertama:</strong> Temukan kolom paling kiri yang memiliki elemen tak nol. Jika perlu, lakukan <strong>pertukaran baris (row swap)</strong> untuk memindahkan baris dengan elemen tak nol tersebut ke posisi paling atas.</p></li>
+<li><p><strong>Membuat Leading 1:</strong> Kalikan baris teratas (baris pivot) dengan suatu skalar sehingga elemen utama (pivot) menjadi 1. Elemen utama ini disebut <strong>leading one</strong>.</p></li>
+<li><p><strong>Membuat Nol di Bawah Pivot:</strong> Untuk setiap baris di bawah baris pivot, lakukan operasi <span class="math notranslate nohighlight">\(R_i \to R_i + kR_{pivot}\)</span> agar semua elemen di bawah pivot menjadi nol.</p></li>
+<li><p><strong>Ulangi Proses:</strong> Ulangi langkah 1-3 pada submatriks yang berada di bawah baris pivot terakhir sampai seluruh matriks berada dalam bentuk eselon baris.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="contoh-proses-eliminasi-gauss">
+<h3>2.1.4 Contoh Proses Eliminasi Gauss<a class="headerlink" href="#contoh-proses-eliminasi-gauss" title="Link to this heading">#</a></h3>
+<p>Selesaikan sistem persamaan berikut:
+$<span class="math notranslate nohighlight">\(\begin{cases} x + 2y + z = 9 \\ 2x + 3y + 4z = 20 \\ 3x + y + 3z = 13 \end{cases}\)</span>$</p>
+<p><strong>1. Bentuk Matriks Augmented</strong>
+$<span class="math notranslate nohighlight">\(\left( \begin{array}{ccc|c} 1 &amp; 2 &amp; 1 &amp; 9 \\ 2 &amp; 3 &amp; 4 &amp; 20 \\ 3 &amp; 1 &amp; 3 &amp; 13 \end{array} \right)\)</span>$</p>
+<p><strong>2. Eliminasi Kolom Pertama</strong>
+Operasi: <span class="math notranslate nohighlight">\(R_2 \to R_2 - 2R_1\)</span> dan <span class="math notranslate nohighlight">\(R_3 \to R_3 - 3R_1\)</span>
+Hasil:
+$<span class="math notranslate nohighlight">\(\left( \begin{array}{ccc|c} 1 &amp; 2 &amp; 1 &amp; 9 \\ 0 &amp; -1 &amp; 2 &amp; 2 \\ 0 &amp; -5 &amp; 0 &amp; -14 \end{array} \right)\)</span>$</p>
+<p><strong>3. Eliminasi Kolom Kedua</strong>
+Operasi: <span class="math notranslate nohighlight">\(R_3 \to R_3 - 5R_2\)</span>
+Hasil:
+$<span class="math notranslate nohighlight">\(\left( \begin{array}{ccc|c} 1 &amp; 2 &amp; 1 &amp; 9 \\ 0 &amp; -1 &amp; 2 &amp; 2 \\ 0 &amp; 0 &amp; -10 &amp; -24 \end{array} \right)\)</span>$</p>
+<p><strong>4. Substitusi Mundur</strong></p>
+<ul class="simple">
+<li><p><strong>Dari baris ketiga:</strong>
+<span class="math notranslate nohighlight">\(-10z = -24 \implies z = \frac{12}{5}\)</span></p></li>
+<li><p><strong>Baris kedua:</strong>
+<span class="math notranslate nohighlight">\(-y + 2z = 2 \implies -y + 2(\frac{12}{5}) = 2 \implies -y = -\frac{14}{5} \implies y = \frac{14}{5}\)</span></p></li>
+<li><p><strong>Baris pertama:</strong>
+<span class="math notranslate nohighlight">\(x + 2y + z = 9 \implies x + 2(\frac{14}{5}) + \frac{12}{5} = 9 \implies x + 8 = 9 \implies x = 1\)</span></p></li>
+</ul>
+<p><strong>Hasil Akhir:</strong>
+<span class="math notranslate nohighlight">\(x = 1, \quad y = \frac{14}{5}, \quad z = \frac{12}{5}\)</span></p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="transformasi-linear-geometris">
+<h1>TRANSFORMASI LINEAR GEOMETRIS<a class="headerlink" href="#transformasi-linear-geometris" title="Link to this heading">#</a></h1>
+<section id="transformasi-linear">
+<h2>3.1 Transformasi Linear<a class="headerlink" href="#transformasi-linear" title="Link to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="matriks-dari-transformasi-linear">
+<h2>1. Matriks dari Transformasi Linear<a class="headerlink" href="#matriks-dari-transformasi-linear" title="Link to this heading">#</a></h2>
+<p>Setiap transformasi linear dari <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> ke <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span> dapat dipandang sebagai sebuah transformasi matriks, dan begitu pula sebaliknya. Istilah <strong>transformasi linear</strong> berfokus pada karakteristik pemetaannya, sedangkan <strong>transformasi matriks</strong> menjelaskan bagaimana pemetaan tersebut diimplementasikan.</p>
+<section id="teorema-matriks-standar">
+<h3>Teorema Matriks Standar<a class="headerlink" href="#teorema-matriks-standar" title="Link to this heading">#</a></h3>
+<p>Misalkan <span class="math notranslate nohighlight">\(T: \mathbb{R}^n \rightarrow \mathbb{R}^m\)</span> adalah sebuah transformasi linear. Maka terdapat matriks <span class="math notranslate nohighlight">\(A\)</span> yang unik/tunggal sedemikian sehingga:</p>
+<div class="math notranslate nohighlight">
+\[T(x) = Ax \quad \text{untuk semua } x \in \mathbb{R}^n\]</div>
+<p>Di mana <span class="math notranslate nohighlight">\(A\)</span> adalah matriks berukuran <span class="math notranslate nohighlight">\(m \times n\)</span> yang kolom ke-<span class="math notranslate nohighlight">\(j\)</span> nya merupakan vektor <span class="math notranslate nohighlight">\(T(e_j)\)</span>, dan <span class="math notranslate nohighlight">\(e_j\)</span> adalah kolom ke-<span class="math notranslate nohighlight">\(j\)</span> dari matriks identitas dalam <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[A = \begin{bmatrix} T(e_1) &amp; \dots &amp; T(e_n) \end{bmatrix}\]</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="pembuktian">
+<h2>2. Pembuktian<a class="headerlink" href="#pembuktian" title="Link to this heading">#</a></h2>
+<p>Untuk membuktikan hal tersebut, kita dapat menuliskan vektor <span class="math notranslate nohighlight">\(x\)</span> sebagai kombinasi linear dari basis standar matriks identitas <span class="math notranslate nohighlight">\(I_n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[x = I_n x = x_1 e_1 + \dots + x_n e_n\]</div>
+<p>Menggunakan sifat linearitas dari transformasi <span class="math notranslate nohighlight">\(T\)</span>, kita dapat menghitung pemetaannya sebagai berikut:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+T(x) &amp;= T(x_1 e_1 + \dots + x_n e_n) \\
+&amp;= x_1 T(e_1) + \dots + x_n T(e_n) \\
+&amp;= \begin{bmatrix} T(e_1) &amp; \dots &amp; T(e_n) \end{bmatrix} \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} \\
+&amp;= Ax
+\end{aligned}
+\end{split}\]</div>
+<p>Matriks <span class="math notranslate nohighlight">\(A\)</span> di atas disebut sebagai <strong>matriks standar</strong> untuk transformasi <span class="math notranslate nohighlight">\(T\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="contoh-soal-transformasi-dilatasi">
+<h2>3. Contoh Soal: Transformasi Dilatasi<a class="headerlink" href="#contoh-soal-transformasi-dilatasi" title="Link to this heading">#</a></h2>
+<p><strong>Soal:</strong> Temukan matriks standar <span class="math notranslate nohighlight">\(A\)</span> untuk transformasi dilatasi <span class="math notranslate nohighlight">\(T(x) = 3x\)</span>, untuk <span class="math notranslate nohighlight">\(x \in \mathbb{R}^2\)</span>.</p>
+<p><strong>Solusi:</strong> Kita transformasikan basis standar dari <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, yaitu <span class="math notranslate nohighlight">\(e_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}\)</span> dan <span class="math notranslate nohighlight">\(e_2 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}T(e_1) = 3 \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} 3 \\ 0 \end{bmatrix}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}T(e_2) = 3 \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 3 \end{bmatrix}\end{split}\]</div>
+<p>Maka, matriks standar <span class="math notranslate nohighlight">\(A\)</span> adalah:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}A = \begin{bmatrix} 3 &amp; 0 \\ 0 &amp; 3 \end{bmatrix}\end{split}\]</div>
+</section>
+<hr class="docutils" />
+<section id="transformasi-linear-geometris-lainnya-dalam-mathbb-r-2">
+<h2>4. Transformasi Linear Geometris Lainnya dalam <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span><a class="headerlink" href="#transformasi-linear-geometris-lainnya-dalam-mathbb-r-2" title="Link to this heading">#</a></h2>
+<p>Selain dilatasi, terdapat berbagai jenis transformasi linear geometris umum lainnya pada bidang datar (<span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>). Representasi visual dan detail matriksnya biasanya diilustrasikan melalui tabel referensi geometri standar (seperti refleksi, rotasi, dan <em>shearing</em> / pergeseran).</p>
+</section>
+<hr class="docutils" />
+<section id="eksistensi-dan-keunikan-pemetaan-sifat-fungsi">
+<h2>5. Eksistensi dan Keunikan Pemetaan (Sifat Fungsi)<a class="headerlink" href="#eksistensi-dan-keunikan-pemetaan-sifat-fungsi" title="Link to this heading">#</a></h2>
+<section id="definisi-onto-surjektif">
+<h3>Definisi: <em>Onto</em> (Surjektif)<a class="headerlink" href="#definisi-onto-surjektif" title="Link to this heading">#</a></h3>
+<p>Pemetaan <span class="math notranslate nohighlight">\(T: \mathbb{R}^n \rightarrow \mathbb{R}^m\)</span> disebut <strong>onto</strong> <span class="math notranslate nohighlight">\(\mathbb{R}^m\)</span> jika setiap <span class="math notranslate nohighlight">\(b \in \mathbb{R}^m\)</span> adalah bayangan dari <em>sedikitnya satu</em> <span class="math notranslate nohighlight">\(x \in \mathbb{R}^n\)</span>. Dengan kata lain, seluruh area kodomain habis terpetakan.</p>
+</section>
+<section id="definisi-one-to-one-injektif">
+<h3>Definisi: <em>One-to-One</em> (Injektif)<a class="headerlink" href="#definisi-one-to-one-injektif" title="Link to this heading">#</a></h3>
+<p>Pemetaan <span class="math notranslate nohighlight">\(T: \mathbb{R}^n \rightarrow \mathbb{R}^m\)</span> disebut <strong>one-to-one</strong> jika setiap <span class="math notranslate nohighlight">\(b \in \mathbb{R}^m\)</span> adalah bayangan dari <em>paling banyak satu</em> <span class="math notranslate nohighlight">\(x \in \mathbb{R}^n\)</span>. Artinya, tidak ada dua vektor berbeda di domain yang memetakan ke vektor yang sama di kodomain.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Transformasi-Linear.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">CHAPTER 6 - TRANSFORMASI LINIER</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Tugas-Determinan.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tugas Determinan &amp; Invers Matriks</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">SISTEM PERSAMAAN LINIER</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sistem-persamaan-linear">1.1 Sistem Persamaan Linear</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-sistem-persamaan-linear">1.1.1. Definisi Sistem Persamaan Linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan-dari-operasi-persamaan-linear">1.1.2 Tujuan Dari Operasi Persamaan Linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#persamaan-linear-dan-nonlinear">1.1.2. Persamaan Linear dan Nonlinear</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persamaan-linear">1. Persamaan Linear</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persamaan-nonlinear">2. Persamaan Nonlinear</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-solusi-sistem-persamaan-linear">1.1.3. Definisi Solusi Sistem Persamaan Linear</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#operasi-baris-elementer-pada-matriks">Operasi Baris Elementer Pada Matriks</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.1 Operasi Baris Elementer Pada Matriks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-operasi-baris-pada-matriks">2.1.1 Definisi Operasi Baris Pada Matriks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jenis-jenis-operasi-baris-elementer">Jenis-Jenis Operasi Baris Elementer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pertukaran-dua-baris-row-switching">1. Pertukaran Dua Baris (Row Switching)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perkalian-baris-dengan-konstanta-row-scaling">2. Perkalian Baris dengan Konstanta (Row Scaling)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#penjumlahan-baris-row-replacement">3. Penjumlahan Baris (Row Replacement)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notasi-operasi-bilangan-elementer">2.1.2 Notasi Operasi Bilangan Elementer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-langkah-menjalankan-operasi-baris-elementer">2.1.3 Langkah-Langkah Menjalankan Operasi Baris Elementer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-proses-eliminasi-gauss">2.1.4 Contoh Proses Eliminasi Gauss</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-linear-geometris">TRANSFORMASI LINEAR GEOMETRIS</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-linear">3.1 Transformasi Linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-dari-transformasi-linear">1. Matriks dari Transformasi Linear</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#teorema-matriks-standar">Teorema Matriks Standar</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembuktian">2. Pembuktian</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-soal-transformasi-dilatasi">3. Contoh Soal: Transformasi Dilatasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-linear-geometris-lainnya-dalam-mathbb-r-2">4. Transformasi Linear Geometris Lainnya dalam <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksistensi-dan-keunikan-pemetaan-sifat-fungsi">5. Eksistensi dan Keunikan Pemetaan (Sifat Fungsi)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-onto-surjektif">Definisi: <em>Onto</em> (Surjektif)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-one-to-one-injektif">Definisi: <em>One-to-One</em> (Injektif)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Moh.Baidol Haqqi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

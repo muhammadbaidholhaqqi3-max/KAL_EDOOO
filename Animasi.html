@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>KAL-EDO-2D &#8212; Materi KAL</title>
+    <title>ANIMASI TRANSFORMASI MATRIX – KONSEP CERMIN (REFLEKSI) &#8212; Materi KAL</title>
   
   
   
@@ -60,12 +60,11 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Animasi';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="CHAPTER 6 - TRANSFORMASI LINIER" href="Transformasi-Linear.html" />
+    <link rel="next" title="Transformasi Geometri dengan GeoGebra" href="Transformasi-Geometri.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="Dekomposisi.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -117,8 +116,6 @@
       
       
       
-        
-      
       <dialog id="pst-primary-sidebar-modal"></dialog>
       <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
@@ -138,7 +135,7 @@
     
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -165,13 +162,13 @@
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     KAL-EDO-2D
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html">CHAPTER 6 - TRANSFORMASI LINIER</a></li>
 
 
@@ -212,7 +209,7 @@
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="Animasi.html">ANIMASI TRANSFORMASI MATRIX – KONSEP CERMIN (REFLEKSI)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">ANIMASI TRANSFORMASI MATRIX – KONSEP CERMIN (REFLEKSI)</a></li>
 
 
 
@@ -299,7 +296,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FAnimasi.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -329,7 +326,7 @@
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/Animasi.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -392,7 +389,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -403,11 +402,32 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>KAL-EDO-2D</h1>
+    <h1>ANIMASI TRANSFORMASI MATRIX – KONSEP CERMIN (REFLEKSI)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ANIMASI TRANSFORMASI MATRIX – KONSEP CERMIN (REFLEKSI)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refleksi-terhadap-sumbu-y">Refleksi terhadap Sumbu Y</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-transformasi-matrix-refleksi">1. Konsep Transformasi Matrix Refleksi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-kerja-animasi">2. Cara Kerja Animasi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan">3. Contoh Perhitungan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#p">[
+P’</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#r-cdot-p">R \cdot P</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#keterangan-warna-animasi">4. Keterangan Warna Animasi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -417,84 +437,141 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="kal-edo-2d">
-<h1>KAL-EDO-2D<a class="headerlink" href="#kal-edo-2d" title="Link to this heading">#</a></h1>
-<p>This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out <a class="reference external" href="https://jupyterbook.org">the Jupyter Book documentation</a> for more information.</p>
-<p>Check out the content pages bundled with this sample book to see more.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html">CHAPTER 6 - TRANSFORMASI LINIER</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#syarat-transformasi-linier">Syarat Transformasi Linier</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#contoh-transformasi-linier">Contoh Transformasi Linier</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#fungsi-yang-bukan-transformasi-linier">Fungsi Yang Bukan Transformasi Linier</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#transformasi-nol">Transformasi Nol</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#transformasi-identitas">Transformasi Identitas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#sifat-sifat-transformasi-linier">Sifat-Sifat Transformasi Linier</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#transformasi-linier-dengan-matriks">Transformasi Linier Dengan Matriks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#contoh-matriks-transformasi">Contoh Matriks Transformasi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#rotasi-bidang-pada-r2">Rotasi Bidang pada R2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#contoh-rotasi-90-derajat">Contoh Rotasi 90 Derajat</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#refleksi">Refleksi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#dilatasi">Dilatasi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#shear-geser">Shear (Geser)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#proyeksi-dalam-r3">Proyeksi dalam R3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#matriks-standar">Matriks Standar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#gabungan-transformasi">Gabungan Transformasi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#invers-transformasi-linier">Invers Transformasi Linier</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#syarat-matriks-memiliki-invers">Syarat Matriks Memiliki Invers</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#invers-matriks-2x2">Invers Matriks 2x2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#keuntungan-representasi-matriks">Keuntungan Representasi Matriks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#penerapan-transformasi-linier">Penerapan Transformasi Linier</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Linear.html#kesimpulan">Kesimpulan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Persamaan-Linear.html">SISTEM PERSAMAAN LINIER</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Persamaan-Linear.html#sistem-persamaan-linear">1.1 Sistem Persamaan Linear</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Persamaan-Linear.html#operasi-baris-elementer-pada-matriks">Operasi Baris Elementer Pada Matriks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Persamaan-Linear.html#transformasi-linear-geometris">TRANSFORMASI LINEAR GEOMETRIS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas-Determinan.html">Tugas Determinan &amp; Invers Matriks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas-Determinan.html#a-1">[
-A^{-1}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas-Determinan.html#det-a">[
-\det(A)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas-Determinan.html#m-11">[
-M_{11}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas-Determinan.html#begin-vmatrix-2-1-0-1-end-vmatrix">\begin{vmatrix}
--2 &amp; -1 \
+  <section class="tex2jax_ignore mathjax_ignore" id="animasi-transformasi-matrix-konsep-cermin-refleksi">
+<h1>ANIMASI TRANSFORMASI MATRIX – KONSEP CERMIN (REFLEKSI)<a class="headerlink" href="#animasi-transformasi-matrix-konsep-cermin-refleksi" title="Link to this heading">#</a></h1>
+<section id="refleksi-terhadap-sumbu-y">
+<h2>Refleksi terhadap Sumbu Y<a class="headerlink" href="#refleksi-terhadap-sumbu-y" title="Link to this heading">#</a></h2>
+<p>Transformasi refleksi terhadap sumbu Y mengubah setiap titik:</p>
+<p>[
+(x,y)\rightarrow(-x,y)
+]</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="konsep-transformasi-matrix-refleksi">
+<h1>1. Konsep Transformasi Matrix Refleksi<a class="headerlink" href="#konsep-transformasi-matrix-refleksi" title="Link to this heading">#</a></h1>
+<p>Refleksi terhadap sumbu Y menggunakan matriks transformasi:</p>
+<p>[
+R=
+\begin{bmatrix}
+-1 &amp; 0\
 0 &amp; 1
-\end{vmatrix}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas-Determinan.html#id1">(-2)(1)-(-1)(0)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas-Determinan.html#m-12">[
-M_{12}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas-Determinan.html#begin-vmatrix-1-1-0-1-end-vmatrix">\begin{vmatrix}
-1 &amp; -1 \
-0 &amp; 1
-\end{vmatrix}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas-Determinan.html#id2">(1)(1)-(-1)(0)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas-Determinan.html#m-13">[
-M_{13}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas-Determinan.html#begin-vmatrix-1-2-0-0-end-vmatrix">\begin{vmatrix}
-1 &amp; -2 \
-0 &amp; 0
-\end{vmatrix}</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas-Determinan.html#id3">(1)(0)-(-2)(0)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas-Determinan.html#id4">[
-\det(A)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Animasi.html">ANIMASI TRANSFORMASI MATRIX – KONSEP CERMIN (REFLEKSI)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Animasi.html#konsep-transformasi-matrix-refleksi">1. Konsep Transformasi Matrix Refleksi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Animasi.html#cara-kerja-animasi">2. Cara Kerja Animasi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Animasi.html#contoh-perhitungan">3. Contoh Perhitungan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Animasi.html#p">[
-P’</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Animasi.html#r-cdot-p">R \cdot P</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Animasi.html#id1">[</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Animasi.html#keterangan-warna-animasi">4. Keterangan Warna Animasi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Animasi.html#kesimpulan">Kesimpulan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Transformasi-Geometri.html">Transformasi Geometri dengan GeoGebra</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+\end{bmatrix}
+]</p>
+<p>Jika terdapat titik:</p>
+<p>[
+P=(x,y)
+]</p>
+<p>maka hasil refleksinya adalah:</p>
+<p>[
+P’=(-x,y)
+]</p>
+<p>atau dapat ditulis:</p>
+<p>[
+P’=RP
+]</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="cara-kerja-animasi">
+<h1>2. Cara Kerja Animasi<a class="headerlink" href="#cara-kerja-animasi" title="Link to this heading">#</a></h1>
+<p>Animasi memperlihatkan perpindahan titik dari posisi awal menuju posisi hasil refleksi.</p>
+<p>Tahapan animasi:</p>
+<ol class="arabic simple">
+<li><p>Titik asli bergerak menuju hasil refleksi.</p></li>
+<li><p>Digunakan interpolasi linear untuk menghasilkan gerakan yang halus.</p></li>
+<li><p>Nilai parameter (t) berubah dari:</p></li>
+</ol>
+<p>[
+0 \rightarrow 1 \rightarrow 0
+]</p>
+<p>Rumus interpolasi:</p>
+<p>[
+P(t)=P_{awal}+(P_{tujuan}-P_{awal})\times t
+]</p>
+<p>Keterangan:</p>
+<ul class="simple">
+<li><p>(P_{awal}) = posisi titik sebelum refleksi</p></li>
+<li><p>(P_{tujuan}) = posisi titik hasil refleksi</p></li>
+<li><p>(t) = parameter animasi</p></li>
 </ul>
-</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-perhitungan">
+<h1>3. Contoh Perhitungan<a class="headerlink" href="#contoh-perhitungan" title="Link to this heading">#</a></h1>
+<p>Misalkan titik:</p>
+<p>[
+A=(2,3)
+]</p>
+<p>Ditulis dalam bentuk vektor:</p>
+<p>[
+P=
+\begin{bmatrix}
+2\
+3
+\end{bmatrix}
+]</p>
+<p>Matriks refleksi:</p>
+<p>[
+R=
+\begin{bmatrix}
+-1 &amp; 0\
+0 &amp; 1
+\end{bmatrix}
+]</p>
+<p>Maka:</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="p">
+<h1>[
+P’<a class="headerlink" href="#p" title="Link to this heading">#</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="r-cdot-p">
+<h1>R \cdot P<a class="headerlink" href="#r-cdot-p" title="Link to this heading">#</a></h1>
+<p>\begin{bmatrix}
+-1 &amp; 0\
+0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+2\
+3
+\end{bmatrix}
+]</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>[<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>\begin{bmatrix}
+-2\
+3
+\end{bmatrix}
+]</p>
+<p>Jadi hasil refleksi titik (A(2,3)) terhadap sumbu Y adalah:</p>
+<p>[
+A’=(-2,3)
+]</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="keterangan-warna-animasi">
+<h1>4. Keterangan Warna Animasi<a class="headerlink" href="#keterangan-warna-animasi" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p><strong>Biru</strong> = Titik asli</p></li>
+<li><p><strong>Merah</strong> = Hasil refleksi</p></li>
+<li><p><strong>Grid</strong> = Membantu membaca koordinat pada bidang kartesius</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan">
+<h1>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h1>
+<p>Refleksi terhadap sumbu Y merupakan transformasi matriks yang mengubah tanda koordinat (x) dan mempertahankan koordinat (y).</p>
+<p>[
+(x,y)\rightarrow(-x,y)
+]</p>
+<p>Transformasi ini dapat dituliskan dalam bentuk matriks:</p>
+<p>[
+\begin{bmatrix}
+-1 &amp; 0\
+0 &amp; 1
+\end{bmatrix}
+]</p>
+<p>Animasi menunjukkan proses perpindahan titik dari posisi awal menuju posisi hasil refleksi menggunakan interpolasi linear sehingga perubahan posisi dapat diamati secara visual.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -527,12 +604,21 @@ P’</a></li>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="Dekomposisi.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">&lt;no title&gt;</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="Transformasi-Linear.html"
+       href="Transformasi-Geometri.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">CHAPTER 6 - TRANSFORMASI LINIER</p>
+        <p class="prev-next-title">Transformasi Geometri dengan GeoGebra</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -542,6 +628,36 @@ P’</a></li>
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">ANIMASI TRANSFORMASI MATRIX – KONSEP CERMIN (REFLEKSI)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refleksi-terhadap-sumbu-y">Refleksi terhadap Sumbu Y</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-transformasi-matrix-refleksi">1. Konsep Transformasi Matrix Refleksi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-kerja-animasi">2. Cara Kerja Animasi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-perhitungan">3. Contoh Perhitungan</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#p">[
+P’</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#r-cdot-p">R \cdot P</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#keterangan-warna-animasi">4. Keterangan Warna Animasi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
