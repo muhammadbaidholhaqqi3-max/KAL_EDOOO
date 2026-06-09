@@ -1,0 +1,978 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>CHAPTER 6 - TRANSFORMASI LINIER &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Transformasi-Linear';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Content with notebooks" href="notebooks.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="My sample book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">CHAPTER 6 - TRANSFORMASI LINIER</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTransformasi-Linear.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Transformasi-Linear.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>CHAPTER 6 - TRANSFORMASI LINIER</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">CHAPTER 6 - TRANSFORMASI LINIER</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-transformasi-linier">Pengertian Transformasi Linier</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#syarat-transformasi-linier">Syarat Transformasi Linier</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjumlahan-vektor">1. Penjumlahan Vektor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perkalian-skalar">2. Perkalian Skalar</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-transformasi-linier">Contoh Transformasi Linier</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uji-penjumlahan">Uji Penjumlahan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uji-perkalian-skalar">Uji Perkalian Skalar</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-yang-bukan-transformasi-linier">Fungsi Yang Bukan Transformasi Linier</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-nol">Transformasi Nol</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-identitas">Transformasi Identitas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sifat-sifat-transformasi-linier">Sifat-Sifat Transformasi Linier</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-linier-dengan-matriks">Transformasi Linier Dengan Matriks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-matriks-transformasi">Contoh Matriks Transformasi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rotasi-bidang-pada-r2">Rotasi Bidang pada R2</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-rotasi">Matriks Rotasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-rotasi-90-derajat">Contoh Rotasi 90 Derajat</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#refleksi">Refleksi</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refleksi-terhadap-sumbu-x">Refleksi terhadap sumbu x</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refleksi-terhadap-sumbu-y">Refleksi terhadap sumbu y</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dilatasi">Dilatasi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#shear-geser">Shear (Geser)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shear-pada-sumbu-x">Shear pada sumbu x</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shear-pada-sumbu-y">Shear pada sumbu y</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#proyeksi-dalam-r3">Proyeksi dalam R3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-standar">Matriks Standar</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gabungan-transformasi">Gabungan Transformasi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-transformasi-linier">Invers Transformasi Linier</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#syarat-matriks-memiliki-invers">Syarat Matriks Memiliki Invers</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-matriks-2x2">Invers Matriks 2x2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#keuntungan-representasi-matriks">Keuntungan Representasi Matriks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penerapan-transformasi-linier">Penerapan Transformasi Linier</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-6-transformasi-linier">
+<h1>CHAPTER 6 - TRANSFORMASI LINIER<a class="headerlink" href="#chapter-6-transformasi-linier" title="Link to this heading">#</a></h1>
+<section id="pengertian-transformasi-linier">
+<h2>Pengertian Transformasi Linier<a class="headerlink" href="#pengertian-transformasi-linier" title="Link to this heading">#</a></h2>
+<p>Transformasi linier adalah fungsi yang memetakan suatu ruang vektor ke ruang vektor lain.</p>
+<p>Ditulis:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T : V → W
+</pre></div>
+</div>
+<p>Keterangan:</p>
+<ul class="simple">
+<li><p>V = domain</p></li>
+<li><p>W = codomain</p></li>
+<li><p>T = fungsi transformasi</p></li>
+</ul>
+<p>Transformasi linier mempertahankan:</p>
+<ol class="arabic simple">
+<li><p>Penjumlahan vektor</p></li>
+<li><p>Perkalian skalar</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="syarat-transformasi-linier">
+<h1>Syarat Transformasi Linier<a class="headerlink" href="#syarat-transformasi-linier" title="Link to this heading">#</a></h1>
+<p>Suatu fungsi T disebut transformasi linier jika memenuhi:</p>
+<section id="penjumlahan-vektor">
+<h2>1. Penjumlahan Vektor<a class="headerlink" href="#penjumlahan-vektor" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T(u + v) = T(u) + T(v)
+</pre></div>
+</div>
+</section>
+<section id="perkalian-skalar">
+<h2>2. Perkalian Skalar<a class="headerlink" href="#perkalian-skalar" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T(cu) = cT(u)
+</pre></div>
+</div>
+<p>Keterangan:</p>
+<ul class="simple">
+<li><p>u dan v = vektor</p></li>
+<li><p>c = skalar</p></li>
+</ul>
+<p>Jika salah satu syarat tidak terpenuhi maka bukan transformasi linier.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-transformasi-linier">
+<h1>Contoh Transformasi Linier<a class="headerlink" href="#contoh-transformasi-linier" title="Link to this heading">#</a></h1>
+<p>Misal:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T(x, y) = (2x, 3y)
+</pre></div>
+</div>
+<section id="uji-penjumlahan">
+<h2>Uji Penjumlahan<a class="headerlink" href="#uji-penjumlahan" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T((x1,y1) + (x2,y2))
+= T(x1+x2, y1+y2)
+
+= (2(x1+x2), 3(y1+y2))
+
+= (2x1+2x2, 3y1+3y2)
+
+= T(x1,y1) + T(x2,y2)
+</pre></div>
+</div>
+<p>Memenuhi.</p>
+</section>
+<hr class="docutils" />
+<section id="uji-perkalian-skalar">
+<h2>Uji Perkalian Skalar<a class="headerlink" href="#uji-perkalian-skalar" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T(c(x,y))
+= T(cx, cy)
+
+= (2cx, 3cy)
+
+= c(2x,3y)
+
+= cT(x,y)
+</pre></div>
+</div>
+<p>Memenuhi.</p>
+<p>Jadi T adalah transformasi linier.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="fungsi-yang-bukan-transformasi-linier">
+<h1>Fungsi Yang Bukan Transformasi Linier<a class="headerlink" href="#fungsi-yang-bukan-transformasi-linier" title="Link to this heading">#</a></h1>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T(x,y) = (x+1, y)
+</pre></div>
+</div>
+<p>Bukan transformasi linier karena terdapat konstanta +1.</p>
+<p>Karena:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T(0,0) ≠ (0,0)
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="transformasi-nol">
+<h1>Transformasi Nol<a class="headerlink" href="#transformasi-nol" title="Link to this heading">#</a></h1>
+<p>Transformasi nol memetakan semua vektor menjadi nol.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T(v) = 0
+</pre></div>
+</div>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T(x,y) = (0,0)
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="transformasi-identitas">
+<h1>Transformasi Identitas<a class="headerlink" href="#transformasi-identitas" title="Link to this heading">#</a></h1>
+<p>Transformasi identitas tidak mengubah vektor.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T(v) = v
+</pre></div>
+</div>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T(x,y) = (x,y)
+</pre></div>
+</div>
+<p>Matriks identitas:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>|1 0|
+|0 1|
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="sifat-sifat-transformasi-linier">
+<h1>Sifat-Sifat Transformasi Linier<a class="headerlink" href="#sifat-sifat-transformasi-linier" title="Link to this heading">#</a></h1>
+<p>Jika T transformasi linier maka:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>1. T(0) = 0
+2. T(u - v) = T(u) - T(v)
+3. T(cu + dv) = cT(u) + dT(v)
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="transformasi-linier-dengan-matriks">
+<h1>Transformasi Linier Dengan Matriks<a class="headerlink" href="#transformasi-linier-dengan-matriks" title="Link to this heading">#</a></h1>
+<p>Transformasi linier dapat dinyatakan dengan matriks.</p>
+<p>Jika:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>A = matriks m × n
+</pre></div>
+</div>
+<p>Maka:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T(x) = Ax
+</pre></div>
+</div>
+<p>Transformasi:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Rn → Rm
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-matriks-transformasi">
+<h1>Contoh Matriks Transformasi<a class="headerlink" href="#contoh-matriks-transformasi" title="Link to this heading">#</a></h1>
+<p>Misal:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>A =
+|2 1|
+|0 3|
+</pre></div>
+</div>
+<p>dan:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>x =
+|x|
+|y|
+</pre></div>
+</div>
+<p>Maka:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T(x,y) =
+|2x + y|
+|3y|
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="rotasi-bidang-pada-r2">
+<h1>Rotasi Bidang pada R2<a class="headerlink" href="#rotasi-bidang-pada-r2" title="Link to this heading">#</a></h1>
+<p>Rotasi digunakan untuk memutar vektor pada bidang.</p>
+<section id="matriks-rotasi">
+<h2>Matriks Rotasi<a class="headerlink" href="#matriks-rotasi" title="Link to this heading">#</a></h2>
+<p>Rotasi berlawanan arah jarum jam sebesar θ:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>| cos θ   -sin θ |
+| sin θ    cos θ |
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="contoh-rotasi-90-derajat">
+<h1>Contoh Rotasi 90 Derajat<a class="headerlink" href="#contoh-rotasi-90-derajat" title="Link to this heading">#</a></h1>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>|0 -1|
+|1  0|
+</pre></div>
+</div>
+<p>Digunakan untuk memutar titik 90°.</p>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="refleksi">
+<h1>Refleksi<a class="headerlink" href="#refleksi" title="Link to this heading">#</a></h1>
+<p>Refleksi adalah pencerminan terhadap:</p>
+<ul class="simple">
+<li><p>sumbu x</p></li>
+<li><p>sumbu y</p></li>
+</ul>
+<section id="refleksi-terhadap-sumbu-x">
+<h2>Refleksi terhadap sumbu x<a class="headerlink" href="#refleksi-terhadap-sumbu-x" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>|1  0|
+|0 -1|
+</pre></div>
+</div>
+</section>
+<section id="refleksi-terhadap-sumbu-y">
+<h2>Refleksi terhadap sumbu y<a class="headerlink" href="#refleksi-terhadap-sumbu-y" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>|-1 0|
+| 0 1|
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="dilatasi">
+<h1>Dilatasi<a class="headerlink" href="#dilatasi" title="Link to this heading">#</a></h1>
+<p>Dilatasi adalah transformasi memperbesar atau memperkecil objek.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>|k 0|
+|0 k|
+</pre></div>
+</div>
+<p>Keterangan:</p>
+<ul class="simple">
+<li><p>k &gt; 1 → diperbesar</p></li>
+<li><p>0 &lt; k &lt; 1 → diperkecil</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="shear-geser">
+<h1>Shear (Geser)<a class="headerlink" href="#shear-geser" title="Link to this heading">#</a></h1>
+<section id="shear-pada-sumbu-x">
+<h2>Shear pada sumbu x<a class="headerlink" href="#shear-pada-sumbu-x" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>|1 k|
+|0 1|
+</pre></div>
+</div>
+</section>
+<section id="shear-pada-sumbu-y">
+<h2>Shear pada sumbu y<a class="headerlink" href="#shear-pada-sumbu-y" title="Link to this heading">#</a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>|1 0|
+|k 1|
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="proyeksi-dalam-r3">
+<h1>Proyeksi dalam R3<a class="headerlink" href="#proyeksi-dalam-r3" title="Link to this heading">#</a></h1>
+<p>Proyeksi adalah transformasi yang memetakan vektor ke bidang tertentu.</p>
+<p>Contoh:</p>
+<ul class="simple">
+<li><p>Proyeksi ke sumbu x</p></li>
+<li><p>Proyeksi ke bidang xy</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="matriks-standar">
+<h1>Matriks Standar<a class="headerlink" href="#matriks-standar" title="Link to this heading">#</a></h1>
+<p>Matriks standar diperoleh dari:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>A = [T(e1) T(e2)]
+</pre></div>
+</div>
+<p>Keterangan:</p>
+<ul class="simple">
+<li><p>e1 = (1,0)</p></li>
+<li><p>e2 = (0,1)</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="gabungan-transformasi">
+<h1>Gabungan Transformasi<a class="headerlink" href="#gabungan-transformasi" title="Link to this heading">#</a></h1>
+<p>Gabungan transformasi dilakukan dengan perkalian matriks.</p>
+<p>Contoh:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T = T2 × T1
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="invers-transformasi-linier">
+<h1>Invers Transformasi Linier<a class="headerlink" href="#invers-transformasi-linier" title="Link to this heading">#</a></h1>
+<p>Jika transformasi dapat dibalik maka memiliki invers.</p>
+<p>Ditulis:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T⁻¹
+</pre></div>
+</div>
+<p>Sifat:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>T⁻¹(T(v)) = v
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="syarat-matriks-memiliki-invers">
+<h1>Syarat Matriks Memiliki Invers<a class="headerlink" href="#syarat-matriks-memiliki-invers" title="Link to this heading">#</a></h1>
+<p>Determinan tidak boleh nol.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>det(A) ≠ 0
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="invers-matriks-2x2">
+<h1>Invers Matriks 2x2<a class="headerlink" href="#invers-matriks-2x2" title="Link to this heading">#</a></h1>
+<p>Jika:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>A =
+|a b|
+|c d|
+</pre></div>
+</div>
+<p>Maka:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>A⁻¹ = 1/(ad-bc)
+| d -b|
+|-c  a|
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="keuntungan-representasi-matriks">
+<h1>Keuntungan Representasi Matriks<a class="headerlink" href="#keuntungan-representasi-matriks" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Mudah ditulis</p></li>
+<li><p>Mudah dibaca</p></li>
+<li><p>Mudah dihitung</p></li>
+<li><p>Praktis untuk komputer</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="penerapan-transformasi-linier">
+<h1>Penerapan Transformasi Linier<a class="headerlink" href="#penerapan-transformasi-linier" title="Link to this heading">#</a></h1>
+<p>Digunakan pada:</p>
+<ul class="simple">
+<li><p>Grafika komputer</p></li>
+<li><p>Animasi</p></li>
+<li><p>Game</p></li>
+<li><p>Robotika</p></li>
+<li><p>AI</p></li>
+<li><p>Machine Learning</p></li>
+<li><p>Pengolahan citra</p></li>
+<li><p>Teknik</p></li>
+<li><p>Fisika</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan">
+<h1>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h1>
+<p>Transformasi linier adalah fungsi matematika yang:</p>
+<ul class="simple">
+<li><p>Memetakan ruang vektor</p></li>
+<li><p>Mempertahankan operasi aljabar</p></li>
+<li><p>Direpresentasikan menggunakan matriks</p></li>
+</ul>
+<p>Jenis transformasi:</p>
+<ol class="arabic simple">
+<li><p>Rotasi</p></li>
+<li><p>Refleksi</p></li>
+<li><p>Dilatasi</p></li>
+<li><p>Proyeksi</p></li>
+<li><p>Shear</p></li>
+</ol>
+<p>Transformasi linier sangat penting dalam matematika dan teknologi modern.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="notebooks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Content with notebooks</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">CHAPTER 6 - TRANSFORMASI LINIER</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengertian-transformasi-linier">Pengertian Transformasi Linier</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#syarat-transformasi-linier">Syarat Transformasi Linier</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjumlahan-vektor">1. Penjumlahan Vektor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perkalian-skalar">2. Perkalian Skalar</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-transformasi-linier">Contoh Transformasi Linier</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uji-penjumlahan">Uji Penjumlahan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uji-perkalian-skalar">Uji Perkalian Skalar</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-yang-bukan-transformasi-linier">Fungsi Yang Bukan Transformasi Linier</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-nol">Transformasi Nol</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-identitas">Transformasi Identitas</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sifat-sifat-transformasi-linier">Sifat-Sifat Transformasi Linier</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#transformasi-linier-dengan-matriks">Transformasi Linier Dengan Matriks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-matriks-transformasi">Contoh Matriks Transformasi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rotasi-bidang-pada-r2">Rotasi Bidang pada R2</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-rotasi">Matriks Rotasi</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#contoh-rotasi-90-derajat">Contoh Rotasi 90 Derajat</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#refleksi">Refleksi</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refleksi-terhadap-sumbu-x">Refleksi terhadap sumbu x</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refleksi-terhadap-sumbu-y">Refleksi terhadap sumbu y</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dilatasi">Dilatasi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#shear-geser">Shear (Geser)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shear-pada-sumbu-x">Shear pada sumbu x</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shear-pada-sumbu-y">Shear pada sumbu y</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#proyeksi-dalam-r3">Proyeksi dalam R3</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#matriks-standar">Matriks Standar</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#gabungan-transformasi">Gabungan Transformasi</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-transformasi-linier">Invers Transformasi Linier</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#syarat-matriks-memiliki-invers">Syarat Matriks Memiliki Invers</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#invers-matriks-2x2">Invers Matriks 2x2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#keuntungan-representasi-matriks">Keuntungan Representasi Matriks</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#penerapan-transformasi-linier">Penerapan Transformasi Linier</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book Community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
